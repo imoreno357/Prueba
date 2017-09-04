@@ -1,0 +1,141 @@
+﻿create database bdinventario;
+
+use bdinventario;
+
+create table usuario(
+usuario char(120),
+clave char(120)
+);
+
+create table docentes(
+cod_doc char(120) primary key not null,
+nom_doc char(120),
+ape_doc char(120),
+est_doc char(120),
+tel_doc int,
+dis_doc char(120)
+);
+
+insert into usuario values('barrial','123');
+insert into usuario values('moreno','123');
+
+
+
+create TABLE Articulos (
+	art_cod  int PRIMARY key AUTO_INCREMENT,
+	art_nom varchar (30) NULL ,
+	art_uni char (4) NULL ,
+	art_pre numeric(10, 2) NULL ,
+	art_stk int NULL,
+    catprod_cod char(5)
+);
+
+create table categoria_producto
+(
+	catprod_cod char(5) primary key,
+	catprod_nom varchar(50)
+);
+
+CREATE TABLE Empleado (
+	emp_cod char (5) NOT NULL Primary Key,
+	emp_nom varchar (35) NOT NULL ,
+	emp_tel char(8) null ,
+	emp_cor varchar(30)  NULL ,
+	emp_dir varchar (30) NOT NULL ,
+    nom_cat char(5) null  
+);      
+
+    CREATE TABLE CAT_EMPLEADO(
+    cod_cat char(5) not null primary key,    
+    nom_cat varchar(50)
+    );         
+
+create table proveedor
+(
+	prov_cod int primary key AUTO_INCREMENT ,
+	prov_nom varchar(50),
+	prov_telf varchar(10),
+	prov_dir varchar(100)
+);
+
+insert into categoria_producto values('P0001','Escritorio');
+insert into categoria_producto values('P0002','Portatil');
+insert into categoria_producto values('P0003','Electrodomestico');
+insert into categoria_producto values('P0004','Acsesorios');
+insert into categoria_producto values('P0005','Printers');
+
+insert into cat_empleado values('C0001','almacenero');
+insert into cat_empleado values('C0002','jefe almacen');
+
+select * FROM empleado
+
+INSERT INTO Empleado VALUES ('E0001','Alvarez PeÃ±a,Angel','123-4567','importa@hotmail.com','Av. La Marina 1234','C0001');
+INSERT INTO Empleado VALUES ('E0002','Ponte Gomez, ALEJANDRO','658-4503','alex@yahoo.com','Av. Pardo 456','C0002');
+INSERT INTO Empleado VALUES ('E0003','ZuÃ±iga Mateo,Carlos','567-4566',null,'Av. Principal 123','C0001');
+INSERT INTO Empleado VALUES ('E0004','Tucto de Souza,Bernardo','567-4566',null,'Av. Principal 123','C0001');
+INSERT INTO Empleado VALUES ('E0005','Vilela Bustamante,Percy', null    , 'obando@hotmail.com','Calle San Pedro 134','C0001');
+INSERT INTO Empleado VALUES ('E0007','Montes Diaz, MIGUEL','567-8356','importa02@hotmail.com','Jr. Naranjos 5689','C0001');
+INSERT INTO Empleado VALUES ('E0008','Rojas Gallo, Jorge','789-4568','importa22@yahoo.com','Av. Habich 543','C0001');
+INSERT INTO Empleado VALUES ('E0009','Garcia La Riva,Guiliana','789-4073','conde@idat.com','Av. Iquitos 228','C0001');
+INSERT INTO Empleado VALUES ('E0011','Wong Atoccsa, Isarrael','768-5704',null,'Calle Cueva 432','C0001');
+INSERT INTO Empleado VALUES ('E0012','LiÃ±an Arias, FERNANDO',null     ,'redondo@hotmail.com','Av. Javier Prado 114','C0001');
+INSERT INTO Empleado VALUES ('E0013','Vergara Hidalgo, Jose','567-8466','importa03@hotmail.com','Jr. Pio XII 112','C0001');
+INSERT INTO Empleado VALUES ('E0014','Bustamante Moptta, Diego','567-4566',null,'Av. Principal 123','C0001');
+INSERT INTO Empleado VALUES ('E0015','Alvarado Cueva, Guiliana','456-3457','campos@yahoo.com','Jr. Dominico 554','C0001');
+INSERT INTO Empleado VALUES ('E0016','Antero Flores, Gregorio','746-0647','ramirez@idat.com','Jr. Salavery 876','C0001');
+INSERT INTO Empleado VALUES ('E0017','Diaz Mal Partida,Jose','567-4566',null,'Av. Guardia Civil 123','C0001');
+INSERT INTO Empleado VALUES ('E0018','Gutierrez Pazos , Mauricio','897-5783','importa04@hotmail.com','Av. Habich 4567','C0001');
+INSERT INTO Empleado VALUES ('E0019','Mendoza Ramirez, Ester','958-3569','importa05@yahoo.com','Av. Wilson 678','C0001');
+INSERT INTO Empleado VALUES ('E0020','Salazar Santiago, Merlo','654-6534','pardo@walla.com','Av. Pardo 567','C0001');
+INSERT INTO Empleado VALUES ('E0021','Carrasco Lee, Laura','267-8958','importa05@hotmail.com','Av. Wilson 1267','C0001');
+
+
+
+INSERT INTO articulos VALUES ('','MOUSE GENIOUS','UNI', 25,235,'P0004');
+INSERT INTO articulos VALUES ('','PENTIUM III 600     ','UNI',150,220,'P0001');
+INSERT INTO articulos VALUES ('','PENTIUM IV 2.5 GB     ','UNI',150,220,'P0001');
+INSERT INTO articulos VALUES ('','FUNDAS NAYLON       ','MTS', 40, 35,'P0004');
+INSERT INTO articulos VALUES ('','MEMORIA ZIP 32      ','UNI', 60, 80,'P0004');
+INSERT INTO articulos VALUES ('','TINTA BJC21 B/N     ','CAJ', 20, 20,'P0004');
+INSERT INTO articulos VALUES ('','IMPRESORA EPSON 1234','UNI',355,120,'P0005');
+INSERT INTO articulos VALUES ('','MONITOR SYNMASTER 3N','UNI',300, 33,'P0004');
+INSERT INTO articulos VALUES ('','MONITOR VIEWSONIC   ','UNI',450, 92,'P0004');
+INSERT INTO articulos VALUES ('','PENTIUM MMX 260     ','UNI',120, 97,'P0001');
+INSERT INTO articulos VALUES ('','MOUSE MICROSOFT     ','UNI', 50,320,'P0004');
+INSERT INTO articulos VALUES ('','MEMORIA DIMM 64     ','UNI', 60, 25,'P0004');
+INSERT INTO articulos VALUES ('','MEMORIA DIMM 128    ','UNI', 82, 25,'P0004');
+
+INSERT INTO articulos VALUES ('A0014','IMPRESORA CANON 1000','UNI',205,200,'P0005');
+INSERT INTO articulos VALUES ('A0015','IMPRESORA Sansung Laser','UNI',1805,200,'P0005');
+
+INSERT INTO articulos VALUES ('A0016','TINTA BJC21 COLOR   ','UNI', 20,120,'P0004');
+INSERT INTO articulos VALUES ('A0017','TINTA B/n  484   ','UNI', 20,120,'P0004');
+INSERT INTO articulos VALUES ('A0018','TINTA Color 624   ','UNI', 20,120,'P0004');
+
+INSERT INTO articulos VALUES ('A0019','TECLADO EPSON 102   ','UNI', 75,122,'P0004');
+INSERT INTO articulos VALUES ('A0020','MOUSE TECH          ','UNI', 30,190,'P0004');
+
+INSERT INTO articulos VALUES ('A0021','USB KISTON 128     ','UNI',160, 97,'P0004');
+INSERT INTO articulos VALUES ('A0022','USB DE 256         ','UNI',220, 20,'P0004');
+INSERT INTO articulos VALUES ('A0023','USB DE 512         ','UNI',260, 25,'P0004');
+INSERT INTO articulos VALUES ('A0024','AMPLIFICADOR TRINITON','UNI',100,20,'P0004');
+INSERT INTO articulos VALUES ('A0025','PARLANTES DE 50 watss ','UNI', 70,12,'P0004');
+INSERT INTO articulos VALUES ('A0026','TECLADO EPSON 102   ','UNI', 75,122,'P0004');
+INSERT INTO articulos VALUES ('A0027','MOUSE TECH          ','UNI', 30,190,'P0004');
+
+
+INSERT INTO proveedor VALUES ('','Rosas Roblez Juan','354-4578','av.marina 150');
+INSERT INTO proveedor VALUES ('','Florez Estrada Maria','314-2112','av.san martin 350');
+INSERT INTO proveedor VALUES ('','Cordova  Ruiz Alberto','304-6584','av.arequipa 800');
+INSERT INTO proveedor VALUES ('','Montero Rojas Antony','351-4000','av.san luis 520');
+
+SELECT *FROM  articulos;
+SELECT *FROM  cat_empleado;
+SELECT *FROM  categoria_producto;
+SELECT *FROM  empleado;
+SELECT *FROM  usuario;
+SELECT *FROM  proveedor;
+
+
+
+
